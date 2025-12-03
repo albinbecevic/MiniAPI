@@ -1,0 +1,25 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build artifacts
+bin/
+obj/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# .NET generated files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Environment variables
+*.env
+
+# Other cache
+*.DS_Store

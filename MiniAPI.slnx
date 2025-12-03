@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="MiniAPI.Tests/MiniAPI.Tests.csproj" />
+  <Project Path="MiniAPI/MiniAPI.csproj" />
+</Solution>
