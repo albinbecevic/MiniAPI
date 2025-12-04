@@ -45,7 +45,7 @@ namespace MiniAPI.Repository
             return true;
         }
 
-        // Used for unit testing.
+        // For tests.
         public static void Clear() {
             TaskManagementDB.Clear();
             NextId = 1;

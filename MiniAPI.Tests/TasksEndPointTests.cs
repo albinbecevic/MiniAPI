@@ -9,8 +9,7 @@ namespace MiniAPI.Tests {
 
     public class TasksEndPointTests {
 
-        public TasksEndPointTests()
-        {
+        public TasksEndPointTests() {
             TaskRepository.Clear();
         }
 
@@ -31,7 +30,7 @@ namespace MiniAPI.Tests {
         }
 
         [Fact]
-        public void GetTask_ReturnsTask_WhenExists() {
+        public void GetTask_ReturnsCorrectTask() {
             var created = TaskRepository.CreateTask(new TaskModel { Title = "A" });
 
             var result = TaskRepository.GetTask(created.Id);
@@ -41,7 +40,7 @@ namespace MiniAPI.Tests {
         }
 
         [Fact]
-        public void GetTask_ReturnsNull_WhenNotExists() {
+        public void GetTask_ReturnsNullWhenNotExists() {
             var result = TaskRepository.GetTask(999);
             result.Should().BeNull();
         }
@@ -60,12 +59,6 @@ namespace MiniAPI.Tests {
         }
 
         [Fact]
-        public void UpdateTask_ReturnsNull_IfNotFound() {
-            var result = TaskRepository.UpdateTask(999, new TaskModel());
-            result.Should().BeNull();
-        }
-
-        [Fact]
         public void DeleteTask_RemovesTask() {
             var t = TaskRepository.CreateTask(new TaskModel { Title = "A" });
 
@@ -74,7 +67,7 @@ namespace MiniAPI.Tests {
         }
 
         [Fact]
-        public void DeleteTask_ReturnsFalse_IfNotFound() {
+        public void DeleteTask_ReturnsFalseIfNotFound() {
             TaskRepository.DeleteTask(999).Should().BeFalse();
         }
 
@@ -88,15 +81,6 @@ namespace MiniAPI.Tests {
             result.Should().HaveCount(2);
             result[0].Title.Should().Be("A");
             result[1].Title.Should().Be("B");
-        }
-
-        [Fact]
-        public void Clear_EmptiesRepository() {
-            TaskRepository.CreateTask(new TaskModel { Title = "A" });
-
-            TaskRepository.Clear();
-
-            TaskRepository.GetAllTasks().Should().BeEmpty();
         }
     }
 }

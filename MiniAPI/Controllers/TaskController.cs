@@ -5,7 +5,7 @@ using MiniAPI.Repository;
 namespace MiniAPI.Controllers
 {
     [ApiController]
-    [Route("tasks")] // Base route: /tasks
+    [Route("tasks")] 
     public class TasksController : ControllerBase
     {
         [HttpGet]
